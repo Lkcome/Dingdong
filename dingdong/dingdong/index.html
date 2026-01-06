@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叮咚设计 DingDong Design - 专业室内设计服务</title>
+    <!-- Swiper CSS -->
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.ico" />
+
+    <link rel="stylesheet" href="./swiper/swiper-bundle.min.css" />
+    <script src="./swiper/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: MiSans, MiSans;
+
+        }
+
+        body {
+            font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* 滚动后背景色（替代JS行内样式） */
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .nav-center {
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            position: relative;
+            color: #FFFFFF;
+            line-height: 28px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 21px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 28px;
+            font-style: normal;
+            padding: 8px 0;
+        }
+
+        .nav-links a.active {
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+            border-radius: 1px;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a.active::after {
+            width: 50px;
+        }
+
+
+
+
+
+        /* Hero区域 */
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 1200px;
+            padding: 0 20px;
+            left:50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%)  translateX(-50%);
+            padding-bottom: 100px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 36px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: white;
+            font-weight: 400;
+        }
+
+        .hero-tagline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 42px;
+            background-image: url(./images/textBg.png);
+            background-size: 100% 100%;
+            top: 25rem;
+            z-index: 688;
+            left: 50%;
+            width: 100%;
+
+        }
+
+        .tagline-box {
+            /* padding: 20px 40px; */
+            padding: 20px 0px;
+
+            display: flex;
+            width: 600px;
+            /* justify-content: space-between; */
+            /* align-items: center; */
+            overflow: hidden;
+
+        }
+
+        .tagline-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 1.1rem;
+            /* margin-right: 260px; */
+        }
+
+        .tagline-left .content {
+            font-weight: 500;
+            font-size: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .tagline-left .price {
+            font-weight: 500;
+            font-size: 28px;
+            margin: 0 10px;
+        }
+
+
+
+        .tagline-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .bell-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+
+        .bell-icon img {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .hero-buttons {
+            position: absolute;
+            width: 100%;
+            bottom: 100px;
+            margin: 0 auto;
+            z-index: 999;
+        }
+
+        .hero-buttons>div {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+
+
+        .btn-primary {
+            width: 342px;
+            height: 60px;
+            background: linear-gradient(90deg, #538DF0 0%, #B853FC 100%);
+            font-weight: 500;
+            font-size: 20px;
+            color: #FFFFFF;
+            line-height: 60px;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+        }
+
+
+        .btn-secondary {
+            width: 342px;
+            height: 60px;
+            font-weight: 500;
+            line-height: 60px;
+            font-size: 20px;
+            text-align: center;
+            background: linear-gradient(0deg, #538DF0 0%, #B853FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            cursor: auto;
+        }
+
+        .btn-secondary::after {
+            content: '';
+            background-image: url(./images/borderBg.png);
+            position: absolute;
+            background-size: 100% 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        }
+
+
+
+
+
+        /* Swiper指示器样式 */
+        .swiper-pagination {
+            position: absolute !important;
+            bottom: 30px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 3 !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 40px !important;
+            height: 4px !important;
+            background: rgba(255, 255, 255, 0.5) !important;
+            border-radius: 2px !important;
+            margin: 0 5px !important;
+            opacity: 1 !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: white !important;
+            width: 60px !important;
+        }
+
+        /* About Us 浅色版本 */
+        .about-section-light {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            width: 100%;
+        }
+
+        .design-case {
+            text-align: left;
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .section-title {
+            font-size: 3rem;
+
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .design-title {
+            font-size: 3rem;
+            font-size: 3rem;
+            width: 700px;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: 20px;
+            position: relative;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 39px;
+            bottom: 0;
+            left: 50%;
+            transform: rotate(-25deg) translateX(-20px);
+            /* transform: translateX(-20px); */
+            height: 0px;
+            border: 1px solid #FFFFFF;
+        }
+
+        .design-title::after {
+            content: '';
+            position: absolute;
+            width: 39px;
+            bottom: 0;
+            left: 20px;
+            transform: rotate(-25deg) translateX(-20px);
+            /* transform: translateX(-20px); */
+            height: 0px;
+            border: 1px solid #FFFFFF;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #334155;
+
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        .about-image {
+            height: 450px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4f46e5;
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            border: 3px dashed #8b5cf6;
+            border-radius: 15px;
+            opacity: 0.6;
+        }
+
+        /* About Us 深色版本 */
+        .about-section-dark {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .about-section-dark .section-title {
+            color: white;
+        }
+
+        .about-section-dark .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .about-section-dark .about-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .about-section-dark .about-image {
+            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+            color: white;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-purple {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            margin-top: 20px;
+        }
+
+
+        /* About Module 新模块样式 */
+        .about-module-section {
+            background: #0F0C1C;
+            position: relative;
+            height: 860px;
+            overflow-y: scroll;
+        }
+
+
+
+        .about-module {
+            max-width: 1366px;
+            margin: 100px auto;
+            position: relative;
+            border-radius: 20px;
+            height: 680px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            background-image: url('./images/aboutBg.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .aboutUS-module {
+            width: 100%;
+            margin: 0 auto;
+            background-image: url('./images/aboutBg.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 暗色蒙层，接近设计稿效果 */
+        .about-module::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .about-module-content {
+            position: relative;
+            z-index: 2;
+            padding: 100px 60px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .aboutUS-module-content {
+            position: relative;
+            z-index: 2;
+            padding: 80px 60px;
+            height: 880px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+
+        .about-module-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .about-module-title::after {
+            content: '';
+            position: absolute;
+            width: 39px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: rotate(-25deg) translateX(-20px);
+            ;
+            /* transform: translateX(-20px); */
+            height: 0px;
+            border: 1px solid #FFFFFF;
+        }
+
+        .aboutUS-module-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .aboutUS-module-title::after {
+            content: '';
+            position: absolute;
+            width: 39px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: rotate(-25deg) translateX(-20px);
+            ;
+            /* transform: translateX(-20px); */
+            height: 0px;
+            border: 1px solid #FFFFFF;
+        }
+
+        .about-module-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .aboutUS-module-subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        .about-module-description {
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: left;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .aboutUS-module-description {
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: left;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .aboutUS-module-description p {
+            margin-bottom: 44px;
+
+        }
+
+        .about-module-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            margin: 0 auto;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            text-shadow: none;
+            width: 168px;
+            height: 48px;
+            background: linear-gradient(90deg, #538DF0 0%, #B853FC 100%);
+        }
+
+        .design-module-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            text-shadow: none;
+            background: transparent;
+            width: 196px;
+            height: 54px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+
+        }
+
+
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .btn-text {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* Services 业务范围 */
+        .services-section {
+            padding: 120px 0;
+            background: #0F0C1C;
+            color: white;
+        }
+
+        .services-wrap {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            background-color: #27273C;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .services-sidebar {
+            border-radius: 12px;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .2s ease;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        .service-nav-item+.service-nav-item {
+            margin-top: 12px;
+        }
+
+        .service-nav-item.active .service-label {
+            font-size: 28px;
+            background: linear-gradient(0deg, #538DF0 0%, #B853FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+
+
+
+        .service-nav-item.active .service-badge {
+            outline: 2px solid #8b5cf6;
+            outline-offset: 2px;
+        }
+
+
+        .service-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .service-badge img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .service-label {
+
+            font-weight: 500;
+            line-height: 60px;
+            font-size: 28px;
+            text-align: center;
+
+            color: #fff;
+            position: relative;
+        }
+
+        .services-preview {
+            overflow: hidden;
+            /* background: rgba(0, 0, 0, .25); */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+            display: grid;
+            height: 584px;
+        }
+
+        .services-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 按钮与图片交互动效（替代JS行内样式） */
+        button {
+            transition: transform 0.15s ease;
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .project-image-small {
+            transition: transform 0.2s ease;
+        }
+
+
+        /* 删除旧的 services-item/image 样式，改用新布局 */
+
+        /* Works 设计案例（横向滚动卡片 + 缩略图切换） */
+        .works-section {
+            padding: 0 0 120px 0;
+            background: #0F0C1C;
+            color: white;
+            position: relative;
+            height: 1000px;
+        }
+
+        .works-section .container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+        }
+
+
+        .works-carousel {
+            display: flex;
+            gap: 40px;
+            padding: 150px 20px;
+
+
+            background-color: #27273C;
+        }
+
+        .works-carousel::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .works-carousel::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .18);
+            border-radius: 6px;
+        }
+
+        .work-card {
+
+            /* scroll-snap-align: start; */
+            border-radius: 16px;
+            padding: 28px 28px 22px;
+            display: flex;
+            /* box-shadow: 0 20px 50px rgba(0, 0, 0, .3); */
+        }
+
+        .work-head {
+            align-items: baseline;
+            margin: 60px 0 0 0;
+            width: 200px;
+        }
+
+        .work-tag {
+            font-size: 24px;
+            opacity: .8;
+            margin-bottom: 34px;
+        }
+
+        .work-title {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .work-main {
+            height: 480px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            width: 820px;
+        }
+
+        .work-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .work-thumbs {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 6px 2px;
+        }
+
+        .work-thumbs::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .work-thumbs::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .15);
+            border-radius: 6px;
+        }
+
+        .work-thumb {
+            width: 128px;
+            height: 128px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform .15s ease, box-shadow .15s ease;
+            position: relative;
+
+        }
+
+        .work-thumb img {
+            width: 126px;
+            height: 126px;
+            object-fit: cover;
+
+
+
+        }
+
+
+
+        .work-thumb.active {
+            outline: 2px solid #8b5cf6;
+        }
+
+
+
+
+
+        .qr-codes {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .qr-code {
+            text-align: center;
+        }
+
+        .qr-placeholder {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .swiper-wrapper {
+            position: relative;
+        }
+
+        .qr-label {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .tips-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 615px;
+            z-index: 999;
+            transform: translateX(-50%) translateY(-150px);
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        /* 提示框内容区域 */
+        .tips-content {
+            background-color: #fff;
+            padding: 60px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+
+        /* 提示图标 */
+        .tips-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #7b61ff;
+            border-radius: 50%;
+            color: #7b61ff;
+            line-height: 40px;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* 提示标题和内容 */
+        .tips-title {
+            font-family: MiSans, MiSans;
+            font-weight: 500;
+            font-size: 32px;
+            color: #000000;
+            margin-left: 20px;
+        }
+
+        .tip-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .tips-text {
+            font-family: MiSans, MiSans;
+            font-weight: 400;
+            font-size: 24px;
+            color: #000000;
+            text-align: center;
+            font-style: normal;
+            text-transform: none;
+        }
+
+        /* 显示时的动画状态 */
+        .tips-modal.show {
+            display: block;
+        }
+
+        .tips-modal.show .tips-content {
+            transform: scale(1);
+        }
+
+        /* 页脚整体样式 */
+        footer {
+            background-color: #1a1a2e;
+            /* 深紫黑色背景 */
+            color: #fff;
+            padding: 40px 80px;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        @font-face {
+            font-family: 'SiyuanFont';
+            /* 自定义字体的名称 */
+            src: url('./siyuanFont/SourceHanSerifCN-Regular-1.otf') format('opentype'),
+
+        }
+
+        .siyuanFont {
+            font-family: 'SiyuanFont', sans-serif;
+            font-size: 50px;
+        }
+
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 100px;
+        }
+
+        /* 左侧品牌区域 */
+        .brand {
+            text-align: center;
+        }
+
+        .chat_title {
+            font-weight: 500;
+            font-size: 18px;
+            color: #151515;
+            line-height: 24px;
+            margin-bottom: 6px;
+        }
+
+        .chat_content {
+            width: 128px;
+            height: 21px;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgba(21, 21, 21, 0.5);
+            line-height: 21px;
+            text-align: center;
+        }
+
+        .brand-logo {
+            width: 110px;
+            height: 155px;
+            background: url('./images/borderBg.png') no-repeat center;
+            /* 替换为指定图片路径 */
+            background-size: contain;
+            margin: 0 auto 28px auto;
+        }
+
+        .brand-slogan {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        /* 中间快速链接与社交区域 */
+        .middle-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .quick-links {
+            margin-bottom: 20px;
+        }
+
+        .quick-links h4 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links li {
+            margin-top: 20px;
+        }
+
+        .quick-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .banner_2_title {
+            font-weight: 600;
+            font-size: 66px;
+            color: #FFFFFF;
+            text-align: center;
+            font-style: normal;
+            text-transform: none;
+        }
+
+
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .wechat-qr {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 999;
+            background-image: url(./images/codeBg.png);
+            background-size: 100% 100%;
+
+        }
+
+        .wechat-qr img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 5px;
+        }
+
+        .price_text {
+            background: linear-gradient(0deg, #538DF0 0%, #B853FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+
+        .social-wechat {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        /* 右侧联系与店铺区域 */
+        .contact-shops {
+            text-align: center;
+        }
+
+        .notice-text {
+            white-space: nowrap;
+            font-size: 14px;
+            animation: scroll 10s linear infinite
+        }
+
+        .notice-text1 {
+            white-space: nowrap;
+            font-size: 14px;
+            animation: scroll1 10s linear infinite
+        }
+
+        .tagline-box-content {
+            width: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 滚动动画关键帧 */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll1 {
+
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+
+        }
+
+
+        .shop-qrs {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .shop-qr {
+            text-align: center;
+        }
+
+        .shop-qr img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 5px;
+        }
+
+        .shop-qr span {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* 版权区域 */
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        @media(min-width: 1400px) {
+            .nav-links li a:hover {
+                background: linear-gradient(0deg, #538DF0 0%, #B853FC 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+            }
+
+            .btn-secondary:hover {
+                transform: translateY(-2px);
+                background: linear-gradient(0deg, #538DF0 0%, #B853FC 100%);
+                color: #fff !important;
+                border-radius: 8px;
+                overflow: hidden;
+                -webkit-text-fill-color: unset !important;
+            }
+
+            .btn-purple:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 35px rgba(139, 92, 246, 0.4);
+            }
+
+            .btn-purple:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 35px rgba(139, 92, 246, 0.4);
+            }
+
+            .service-nav-item:hover {
+                /* background: rgba(255, 255, 255, .06); */
+                transform: translateX(4px);
+            }
+
+            .project-image-small:hover {
+                transform: scale(1.05);
+            }
+
+            .work-thumb:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, .35);
+            }
+
+            .work-thumb:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, .35);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-content,
+            .services-content,
+            .works-content {
+                gap: 50px;
+            }
+
+
+
+            .about-module-content {
+                padding: 80px 30px;
+            }
+
+            .about-module-title {
+                font-size: 2.4rem;
+            }
+
+            .about-module-subtitle {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            footer {
+                padding: 20px;
+            }
+
+
+            .notice-text {
+                animation: none;
+            }
+
+            .notice-text1 {
+                display: none;
+            }
+
+            .tips-title {
+                font-size: 24px;
+                margin-left: 10px;
+            }
+
+            .tips-text {
+                font-size: 18px;
+            }
+
+            .footer-container {
+                display: block;
+            }
+
+            .tips-content {
+                padding: 40px 20px;
+            }
+
+            .tip-box {
+                margin-bottom: 12px;
+            }
+
+            .quick-links {
+                margin: 50px auto;
+            }
+
+
+            .tips-modal {
+                width: 90%;
+                height: auto;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+
+            .nav-center {
+                order: 2;
+                justify-content: start;
+                width: calc(100vw - 40px);
+                overflow-x: scroll;
+                height: 40px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .siyuanFont {
+                font-family: 'SiyuanFont', sans-serif;
+                font-size: 40px;
+            }
+
+            .design-title {
+                width: 100%;
+            }
+
+            .design-module-btn {
+                margin-top: 20px;
+            }
+
+            .nav-links li a {
+                font-size: 16px;
+            }
+            .hero-content{
+                width: 100%;
+            }
+
+
+
+            .nav-links a::after {
+                bottom: 0px
+            }
+
+            .banner_2_title {
+                font-size: 2rem;
+            }
+
+           .hero-title {
+                font-size: 2rem;
+                min-height: 80px;
+                margin-bottom: 20px;
+            }
+
+
+            .tagline-box {
+                min-width: 1000px;
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .tagline-left,
+            .tagline-right {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                font-size: 18px;
+            }
+
+
+            .service-nav-item:hover {
+                background: transparent;
+                transform: translateX(0px);
+            }
+
+            .about-content,
+            .services-content,
+            .works-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+
+            .styles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-images-small {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-module-content {
+                padding: 40px 30px;
+            }
+
+            .about-module-title {
+                font-size: 2.5rem;
+            }
+
+
+            .about-module-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .about-module-description {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .about-module-btn {
+                padding: 15px 25px;
+                font-size: 14px;
+            }
+
+            .services-wrap {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .services-sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 10px 5px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .design-case {
+                margin-bottom: 40px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .design-title {
+                text-align: center;
+                font-size: 2.5rem;
+            }
+
+            .design-title::after {
+                left: 50%;
+            }
+
+            .works-carousel {
+                padding: 40px 10px;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .work-card {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .work-head {
+                width: 100%;
+                margin: 0 0 20px 0;
+                text-align: center;
+            }
+
+            .work-tag {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .work-title {
+                font-size: 28px;
+            }
+
+            .work-main {
+                width: 100%;
+                height: 280px;
+            }
+
+            .works-section {
+                height: auto;
+                padding-bottom: 80px;
+            }
+
+            .works-section .container {
+                flex-direction: column;
+                position: static !important;
+            }
+
+            .work-thumb {
+                width: 100px;
+                height: 100px;
+            }
+
+            .work-thumb img {
+                width: 98px;
+                height: 98px;
+            }
+
+            .services-sidebar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .service-nav-item {
+                flex-direction: column;
+                min-width: 100px;
+                text-align: center;
+                padding: 15px 10px;
+            }
+
+            .service-nav-item+.service-nav-item {
+                margin-top: 0;
+                margin-left: 12px;
+            }
+
+            .service-badge {
+                width: 60px;
+                height: 60px;
+            }
+
+            .service-label {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .tagline-box-content {
+                width: auto;
+                margin: 0 auto;
+            }
+
+            .service-nav-item.active .service-label {
+                font-size: 16px;
+            }
+
+            .services-preview {
+                height: 300px;
+            }
+
+            .hero-tagline {
+                width: 100%;
+                /* transform: translateX(-250px); */
+
+            }
+
+            .textLogo {
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+           
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-preview {
+                height: 220px;
+            }
+
+            .service-nav-item {
+                min-width: 80px;
+                padding: 10px 5px;
+            }
+
+            .work-main {
+                height: 200px;
+            }
+
+            .contact-info {
+                margin: 0 auto;
+            }
+
+            .contact-info p {
+                margin: 10px 0;
+            }
+
+            .work-thumb {
+                width: 40px;
+                height: 40px;
+            }
+
+            .work-thumb img {
+                width: 78px;
+                height: 78px;
+            }
+
+            .design-module-btn {
+                width: 160px;
+                height: 48px;
+                font-size: 13px;
+            }
+
+            .service-badge {
+                width: 50px;
+                height: 50px;
+            }
+
+            .about-image,
+            .services-image {
+                height: 300px;
+            }
+
+            .footer-container {
+                margin: 0;
+                padding: 0;
+            }
+
+            .project-image-large {
+                height: 200px;
+            }
+
+            .about-module-content {
+                padding: 30px 20px;
+            }
+
+            .aboutUS-module-content {
+                padding: 30px 20px;
+
+            }
+
+            .about-module-title {
+                font-size: 2rem;
+            }
+
+            .aboutUS-module-title {
+                font-size: 2rem;
+            }
+
+            .aboutUS-module-subtitle {
+                margin-bottom: 10px;
+            }
+
+            .aboutUS-module-description p {
+                margin-bottom: 20px;
+            }
+
+            .about-module-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-module-description {
+                font-size: 1rem;
+            }
+
+            .about-module-btn {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/logo.png" alt="叮咚设计">
+            </div>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <section class="hero-section" id="home">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('./images/banner1.png')">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Hi,I am DingDong Design</h1>
+                        <!-- <img src="./images/textLogo.png" alt="叮咚设计" class="textLogo"> -->
+                        <div class="siyuanFont">嗨!我是叮咚设计</div>
+                        <div class="hero-tagline">
+                            <div class="tagline-box">
+                                <div class="tagline-left notice-text">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                                <div class="tagline-left notice-text1">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="swiper-slide" style="background-image: url('./images/banner2.png')">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Future Design Engine</h1>
+                        <div class="siyuanFont">未来设计引擎</div>
+                         <div class="hero-tagline">
+                            <div class="tagline-box">
+                                <div class="tagline-left notice-text">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                                <div class="tagline-left notice-text1">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-slide" style="background-image: url('./images/banner3.png')">
+                    <div class="hero-content">
+                        <h1 class="hero-title">DingDong DESIGN</h1>
+                        <div class="siyuanFont">叮咚设计</div>
+                         <div class="hero-tagline">
+                            <div class="tagline-box">
+                                <div class="tagline-left notice-text">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                                <div class="tagline-left notice-text1">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="swiper-slide" style="background-image: url('./images/banner4.png')">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Design Future Home</h1>
+                        <div class="siyuanFont">设计梦想家</div>
+                         <div class="hero-tagline">
+                            <div class="tagline-box">
+                                <div class="tagline-left notice-text">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                                <div class="tagline-left notice-text1">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-slide" style="background-image: url('./images/banner5.png')">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Ultimate Cost-Effective</h1>
+                        <div class="siyuanFont">极致性价比</div>
+                         <div class="hero-tagline">
+                            <div class="tagline-box">
+                                <div class="tagline-left notice-text">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                                <div class="tagline-left notice-text1">
+                                    <div class="tagline-box-content">
+                                        <div class="bell-icon">
+                                            <img src="./images/dingdang.png" alt="">
+                                        </div>
+                                        <span class="content">叮咚一下, <span class="price">99元</span> 设计梦想家!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="hero-buttons">
+            <div>
+
+                <div style="position: relative;" class="Contact">
+                    <div class="btn-primary">Contact me </div>
+                    <div class="wechat-qr" style="bottom:70px">
+                        <img src="./images/weixinCode.png" alt="微信二维码">
+                        <p class="chat_title">微信</p>
+                        <p class="chat_content">请扫描二维码关注</p>
+                    </div>
+                </div>
+                <div class="btn-secondary">More new things</div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- About Us 新模块 - 图片样式 -->
+    <section class="about-module-section" id="about">
+        <div class="container">
+            <div class="about-module">
+                <div class="about-module-content">
+                    <h2 class="about-module-title">关于我们</h2>
+                    <h3 class="about-module-subtitle">About</h3>
+                    <div class="about-module-description">
+                        <p>叮咚设计 DingDong
+                            DESIGN，是一家专注于原创定制化风格的室内设计公司，设计团队成员具备清华、同济、东南、西建大等国内顶尖建筑设计院校教育背景、行业头部设计院多年实际设计工作经...
+                        </p>
+                    </div>
+                    <button class="about-module-btn">
+                        <img src="./images/mouse.png" alt="" class="btn-icon">
+                        <span class="btn-text">滑动查看更多</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="aboutUS-module">
+            <div class="aboutUS-module-content">
+                <h2 class="aboutUS-module-title">关于我们</h2>
+                <h3 class="aboutUS-module-subtitle">About</h3>
+                <div class="aboutUS-module-description">
+                    <p>叮咚设计 DingDong
+                        DESIGN，是一家专注于原创定制化风格的室内设计公司，设计团队成员具备清华、同济、东南、西建大等国内顶尖建筑设计院校教育背景、行业头部设计院多年实际设计工作经历。主要针对有室内定制设计需求的客户，项目遍布北京、上海、西安、天津、广州、深圳、青岛、重庆、成都
+                        等地。</p>
+                    <p>当前设计市场的主要矛盾是个人与中小企业对美好生活办公品质的需求，与高额室内精装设计费之间的矛盾，以及与个人美学素养和专业能力的矛盾。绝大多数人无法接受常规市场价格（2-5
+                        万以上）的设计费，选择自行设计住宅和办公场所，受限于专业能力，最终装修花费巨大但呈现效果不佳。</p>
+                    <p>叮咚设计作为国内首家为客户提供极致性价比解决方案的设计公司，价格打折服务不打折，各类别设计报价仅为市场同类价格的1/10！本公司以聆听与探索用户的深度需求为第一要素，将设计师的专业素养与经验服务于用户的切身体验与生活感知，着力于在生活和美学中创造和谐、包容、平衡、舒适的状态，给设计行业一个新可能！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services 业务范围 -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">业务范围</h2>
+                <p class="section-subtitle">Service</p>
+            </div>
+            <div class="services-wrap">
+                <div class="services-sidebar">
+                    <div class="service-nav-item active" data-img="./images/residence.png"
+                        data-img1="./images/zhuzhai.png" data-img2="./images/zhuzhaiActive.png">
+                        <div class="service-badge">
+                            <img src="./images/zhuzhai.png" alt="" class="service-badge-img">
+                        </div>
+                        <div class="service-label">住宅</div>
+                    </div>
+                    <div class="service-nav-item" data-img="./images/bangongBg.png" data-img1="./images/bangong.png"
+                        data-img2="./images/bangongActive.png">
+                        <div class="service-badge">
+                            <img src="./images/bangong.png" alt="" class="service-badge-img">
+                        </div>
+                        <div class="service-label">办公</div>
+                    </div>
+                    <div class="service-nav-item" data-img="./images/canyinBg.png" data-img1="./images/canyin.png"
+                        data-img2="./images/canyinActive.png">
+                        <div class="service-badge">
+                            <img src="./images/canyin.png" alt="" class="service-badge-img">
+                        </div>
+                        <div class="service-label">餐饮</div>
+                    </div>
+                    <div class="service-nav-item" data-img="./images/jiudianBg.png" data-img1="./images/jiudian.png"
+                        data-img2="./images/jiudianActive.png">
+                        <div class="service-badge">
+                            <img src="./images/jiudian.png" alt="" class="service-badge-img">
+                        </div>
+                        <div class="service-label">酒店</div>
+                    </div>
+                </div>
+                <div class="services-preview">
+                    <img id="servicePreview" src="./images/residence.png" alt="预览图">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works 设计案例（JSON 渲染 + 横向滚动 + 缩略图切换） -->
+    <section class="works-section" id="works">
+        <div class="container" id="scroll-container">
+            <div class="design-case">
+                <div>
+                    <h2 class="design-title ">设计案例</h2>
+                    <p class="section-subtitle">Works</p>
+                </div>
+                <div>
+                    <div style="color: rgba(255,255,255,0.7);font-weight: 300;margin-bottom: 24px;">N种设计风格</div>
+                    <div>
+                        <p style="margin-bottom: 10px;">奶油风、原木风、轻奢风、法式风</p>
+                        <p>宋氏美学、新中式、意式风、中古风</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="design-module-btn">
+                        <img src="./images/mouse.png" alt="" class="btn-icon">
+                        <span class="btn-text">滚动查看更多</span>
+                    </button>
+                </div>
+            </div>
+            <div class="works-carousel" id="worksCarousel"></div>
+        </div>
+    </section>
+    <div class="tips-modal" id="tipsModal">
+        <div class="tips-content">
+            <div class="tip-box">
+                <img src="./images/tip.png" alt="" width="35px" height="35px">
+                <h3 class="tips-title">温馨提示</h3>
+            </div>
+            <p class="tips-text">Future Architects交互设计全新版本<br>正在维修升级ing，敬请期待!</p>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="brand">
+                <div class="brand-logo"><img src="./images/logofooter.png" alt=""></div>
+                <p class="brand-slogan">叮咚一下，<span class="price_text">99</span>元设计梦想家！</p>
+            </div>
+            <div class="middle-section">
+                <div class="quick-links">
+                    <h4>快速链接</h4>
+                    <ul class="nav_links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#works">Works</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="social-icons">
+                <div class="contact-info">
+                    <p>电话：155-6396-5176</p>
+                    <p>微信号：DingDong_DESIGN</p>
+                    <p>邮箱：dingdongdesign2021@163.com</p>
+                    <div style="display: flex;margin-top: 10px;">
+                        <div class="social-wechat">
+                            <img src="./images/weixin.png" alt="微信">
+                            <div class="wechat-qr">
+                                <img src="./images/weixinCode.png" alt="微信二维码">
+                                <p class="chat_title">微信</p>
+                                <p class="chat_content">请扫描二维码关注</p>
+                            </div>
+                        </div>
+                        <div class="social-wechat">
+                            <img src="./images/xiaohongshu.png" alt="小红书"> <!-- 替换为指定图片路径 -->
+                            <div class="wechat-qr">
+                                <img src="./images/redbookCode.png" alt="小红书二维码">
+                                <p class="chat_title">小红书</p>
+                                <p class="chat_content">请扫描二维码关注</p>
+                            </div>
+                        </div>
+                        <div class="social-wechat">
+                            <img src="./images/weibo.png" alt="微博"> <!-- 替换为指定图片路径 -->
+                            <div class="wechat-qr">
+                                <img src="./images/weiboCode.png" alt="微博二维码">
+                                <p class="chat_title">微博</p>
+                                <p class="chat_content">请扫描二维码关注</p>
+                            </div>
+                        </div>
+                        <div class="social-wechat">
+                            <img src="./images/douyin.png" alt="抖音"> <!-- 替换为指定图片路径 -->
+                            <div class="wechat-qr">
+                                <img src="./images/douyinCode.png" alt="抖音二维码">
+                                <p class="chat_title">抖音</p>
+                                <p class="chat_content">请扫描二维码关注</p>
+                            </div>
+                        </div>
+                        <div class="social-wechat">
+                            <img src="./images/kuaishou.png" alt="快手"> <!-- 替换为指定图片路径 -->
+                            <div class="wechat-qr">
+                                <img src="./images/kuaishouCode.png" alt="快手二维码">
+                                <p class="chat_title">快手</p>
+                                <p class="chat_content">请扫描二维码关注</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="contact-shops">
+
+                <div class="shop-qrs">
+                    <div class="shop-qr">
+                        <img src="./images/weixinCode1.png" alt="微信店铺"> <!-- 替换为指定图片路径 -->
+                        <div>微信</div>
+                    </div>
+                    <div class="shop-qr">
+                        <img src="./images/taobao.png" alt="淘宝店铺"> <!-- 替换为指定图片路径 -->
+                        <div>淘宝店铺</div>
+                    </div>
+                    <div class="shop-qr">
+                        <img src="./images/jingdongCode.png" alt="京东店铺"> <!-- 替换为指定图片路径 -->
+                        <div>京东店铺</div>
+                    </div>
+                      <div class="shop-qr">
+                        <img src="./images/pingduoduo.png" alt="京东店铺"> <!-- 替换为指定图片路径 -->
+                        <div>拼多多</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2023 LanBry, All rights reserved. Powered by LanBry
+        </div>
+
+    </footer>
+
+    <!-- Footer -->
+
+
+    <!-- Swiper JS -->
+
+    <script>
+        // Swiper轮播图初始化
+        const swiper = new Swiper('.hero-swiper', {
+            // 基本设置
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+
+            // 分页器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // 触摸设置
+            touchRatio: 1,
+            touchAngle: 45,
+            grabCursor: true,
+
+            // 效果设置
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+
+            // 速度设置
+            speed: 1000,
+
+            // 事件回调
+            on: {
+                slideChange: function () {
+                    console.log('轮播图切换到:', this.realIndex);
+                }
+            }
+        });
+
+        let btnPrimary = document.querySelector('.Contact');
+        btnPrimary.addEventListener('click', function () {
+            let wechatQr = btnPrimary.querySelector('.wechat-qr');
+            if (wechatQr.style.display === 'block') {
+                wechatQr.style.display = 'none';
+            } else {
+                wechatQr.style.display = 'block';
+            }
+        });
+        window.addEventListener('click', function (e) {
+            if (!btnPrimary.contains(e.target)) {
+                let wechatQr = btnPrimary.querySelector('.wechat-qr');
+                wechatQr.style.display = 'none';
+            }
+        });
+        // 平滑滚动和导航active状态切换
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // 移除所有导航链接的active状态
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // 添加当前链接的active状态
+                this.classList.add('active');
+
+                // 平滑滚动到目标区域
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // 平滑滚动和导航active状态切换
+        document.querySelectorAll('.nav_links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // 移除所有导航链接的active状态
+                document.querySelectorAll('.nav_links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // 添加当前链接的active状态
+                this.classList.add('active');
+
+                // 平滑滚动到目标区域
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+
+
+        // 导航栏滚动效果和active状态切换
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // 根据滚动位置自动切换active状态
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+            // let current = '';
+            // sections.forEach(section => {
+            //     const sectionTop = section.offsetTop;
+            //     const sectionHeight = section.clientHeight;
+            //     if (window.scrollY >= (sectionTop - 200)) {
+            //         current = section.getAttribute('id');
+            //     }
+            // });
+
+            // navLinks.forEach(link => {
+            //     link.classList.remove('active');
+            //     if (link.getAttribute('href') === '#' + current) {
+            //         link.classList.add('active');
+            //     }
+            // });
+        });
+
+        // 已移除会产生行内样式的交互，依赖CSS :hover 与过渡
+
+        // 风格标签点击效果
+        document.querySelectorAll('.style-tag').forEach(tag => {
+            tag.addEventListener('click', function () {
+                // 移除其他标签的active状态
+                document.querySelectorAll('.style-tag').forEach(t => t.classList.remove('active'));
+                // 添加当前标签的active状态
+                this.classList.add('active');
+            });
+        });
+
+        const showBtn = document.querySelector('.btn-secondary');
+        const tipsModal = document.getElementById('tipsModal');
+
+        showBtn.addEventListener('click', () => {
+
+            // 显示提示框并添加动画
+            tipsModal.classList.add('show');
+
+            // 3秒后关闭提示框
+            setTimeout(() => {
+                tipsModal.classList.remove('show');
+            }, 5000);
+        });
+        // 页面加载与悬停效果均改由CSS控制
+
+        // 业务范围 左侧菜单切换右侧图片
+        const previewImg = document.getElementById('servicePreview');
+        const navItems = document.querySelectorAll('.service-nav-item');
+        const serviceBadgeImg = document.querySelectorAll('.service-badge-img')
+        if (previewImg && navItems.length) {
+            navItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    navItems.forEach(i => {
+                        const urls = i.getAttribute('data-img1');
+                        i.classList.remove('active');
+                        let img = i.querySelector('img')
+                        if (img) {
+                            img.src = urls
+                        }
+                    });
+                    const url = item.getAttribute('data-img');
+                    const url1 = item.getAttribute('data-img1');
+                    const url2 = item.getAttribute('data-img2');
+                    if (url) previewImg.src = url;
+                    if (url2) serviceBadgeImg[index].src = url2
+                    item.classList.add('active');
+                });
+            });
+            navItems.forEach((item, index) => {
+                item.addEventListener('mouseenter', () => {
+                    navItems.forEach(i => {
+                        const urls = i.getAttribute('data-img1');
+                        i.classList.remove('active');
+                        let img = i.querySelector('img')
+                        if (img) {
+                            img.src = urls
+                        }
+                    });
+                    const url = item.getAttribute('data-img');
+                    const url1 = item.getAttribute('data-img1');
+                    const url2 = item.getAttribute('data-img2');
+                    if (url) previewImg.src = url;
+                    if (url2) serviceBadgeImg[index].src = url2
+                    item.classList.add('active');
+                });
+            });
+        }
+        window.onload = function () {
+            const url = navItems[0].getAttribute('data-img2');
+            serviceBadgeImg[0].src = url
+
+        }
+
+        // 设计案例：基于 JSON 渲染 + 缩略图切换
+        const worksData = [
+            {
+                tag: '风格1',
+                title: '奶油风',
+                cover: './images/stylesImg/naiyoufeng1.png',
+                thumbs: ['./images/stylesImg/naiyoufeng1.png', './images/stylesImg/naiyoufeng2.png', './images/stylesImg/naiyoufeng3.png', './images/stylesImg/naiyoufeng4.png', './images/stylesImg/naiyoufeng5.png', './images/stylesImg/naiyoufeng6.png']
+            },
+            {
+                tag: '风格2',
+                title: '原木风',
+                cover: './images/stylesImg/yuanmufeng1.png',
+                thumbs: ['./images/stylesImg/yuanmufeng1.png', './images/stylesImg/yuanmufeng2.png', './images/stylesImg/yuanmufeng3.png', './images/stylesImg/yuanmufeng4.png', './images/stylesImg/yuanmufeng5.png', './images/stylesImg/yuanmufeng6.png']
+            },
+            {
+                tag: '风格3',
+                title: '轻奢风',
+                cover: './images/stylesImg/qingshefeng1.png',
+                thumbs: ['./images/stylesImg/qingshefeng1.png', './images/stylesImg/qingshefeng2.png', './images/stylesImg/qingshefeng3.png', './images/stylesImg/qingshefeng4.png', './images/stylesImg/qingshefeng5.png', './images/stylesImg/qingshefeng6.png']
+            },
+            {
+                tag: '风格4',
+                title: '法式风',
+                cover: './images/stylesImg/fashifeng1.png',
+                thumbs: ['./images/stylesImg/fashifeng1.png', './images/stylesImg/fashifeng2.png', './images/stylesImg/fashifeng3.png', './images/stylesImg/fashifeng4.png', './images/stylesImg/fashifeng5.png', './images/stylesImg/fashifeng6.png']
+            },
+            {
+                tag: '风格5',
+                title: '宋氏美学',
+                cover: './images/stylesImg/songshimeixue1.png',
+                thumbs: ['./images/stylesImg/songshimeixue1.png', './images/stylesImg/songshimeixue2.png', './images/stylesImg/songshimeixue3.png', './images/stylesImg/songshimeixue4.png', './images/stylesImg/songshimeixue5.png', './images/stylesImg/songshimeixue6.png']
+            },
+            {
+                tag: '风格6',
+                title: '新中式',
+                cover: './images/stylesImg/xinzhongshi1.png',
+                thumbs: ['./images/stylesImg/xinzhongshi1.png', './images/stylesImg/xinzhongshi2.png', './images/stylesImg/xinzhongshi3.png', './images/stylesImg/xinzhongshi4.png', './images/stylesImg/xinzhongshi5.png', './images/stylesImg/xinzhongshi6.png']
+            },
+            {
+                tag: '风格7',
+                title: '意式风',
+                cover: './images/stylesImg/yishifeng1.png',
+                thumbs: ['./images/stylesImg/yishifeng1.png', './images/stylesImg/yishifeng2.png', './images/stylesImg/yishifeng3.png', './images/stylesImg/yishifeng4.png', './images/stylesImg/yishifeng5.png', './images/stylesImg/yishifeng6.png']
+            },
+            {
+                tag: '风格8',
+                title: '中古风',
+                cover: './images/stylesImg/zhonggufeng1.png',
+                thumbs: ['./images/stylesImg/zhonggufeng1.png', './images/stylesImg/zhonggufeng2.png', './images/stylesImg/zhonggufeng3.png', './images/stylesImg/zhonggufeng4.png', './images/stylesImg/zhonggufeng5.png', './images/stylesImg/zhonggufeng6.png']
+            },
+        ];
+
+        const worksCarousel = document.getElementById('worksCarousel');
+        const works = document.getElementById('works');
+        const services = document.getElementById('services');
+
+        if (services && works) {
+            const container = services.querySelectorAll('.container')[0];
+            const container1 = works.querySelectorAll('.container')[0];
+            const left = container.getBoundingClientRect().left;
+            container1.style.position = 'absolute'
+            container1.style.left = left + 'px'
+            container1.style.maxWidth = `calc(100vw - ${left}px)`;
+        }
+        if (worksCarousel) {
+            worksData.forEach((work, wi) => {
+                const card = document.createElement('div');
+                card.className = 'work-card';
+
+                card.innerHTML = `
+                    <div class="work-head">
+                        <p class="work-tag">${work.tag}</p>
+                        <p class="work-title">${work.title}</p>
+                    </div>
+                   <div>
+                     <div class="work-main"><img src="${work.cover}" alt="${work.title}"></div>
+                    <div class="work-thumbs"></div>
+                    </div>
+                `;
+
+                const thumbsWrap = card.querySelector('.work-thumbs');
+                work.thumbs.forEach((src, ti) => {
+                    const t = document.createElement('div');
+                    t.className = 'work-thumb' + (ti === 0 ? ' active' : '');
+                    t.innerHTML = `<img src="${src}" alt="thumb">`;
+                    t.addEventListener('click', () => {
+                        card.querySelector('.work-main img').src = src;
+                        thumbsWrap.querySelectorAll('.work-thumb').forEach(n => n.classList.remove('active'));
+                        t.classList.add('active');
+                    });
+                    thumbsWrap.appendChild(t);
+                });
+
+                worksCarousel.appendChild(card);
+            });
+        }
+
+
+        // 获取图片元素
+        const zoomImg = document.querySelector('.aboutUS-module');
+
+        // 配置缩放参数（可根据需求调整）
+        const config = {
+            startScroll: 200, // 开始放大的滚动距离（px）
+            endScroll: 800,   // 停止放大的滚动距离（px）
+            minScale: 0.8,      // 最小缩放比例（初始大小）
+            maxScale: 1     // 最大缩放比例（放大后的大小）
+        };
+
+        // 节流函数：优化滚动事件性能（避免频繁触发）
+        function throttle (fn, delay = 10) {
+            let lastTime = 0;
+            return function (...args) {
+                const now = Date.now();
+                if (now - lastTime > delay) {
+                    fn.apply(this, args);
+                    lastTime = now;
+                }
+            };
+        }
+
+        // 处理滚动事件：计算缩放比例并应用
+        function handleScroll () {
+            const scrollY = this.scrollTop; // 当前滚动距离
+            let scale;
+            if (scrollY <= config.startScroll) {
+                // 滚动距离小于"开始值"：保持最小缩放
+                scale = config.minScale;
+            } else if (scrollY >= config.endScroll) {
+                // 滚动距离大于"结束值"：保持最大缩放
+                scale = config.maxScale;
+            } else {
+                // 滚动距离在区间内：线性计算缩放比例
+                // 公式：(当前滚动-开始滚动)/(结束滚动-开始滚动) = (当前缩放-最小缩放)/(最大缩放-最小缩放)
+                const progress = (scrollY - config.startScroll) / (config.endScroll - config.startScroll);
+                scale = config.minScale + (config.maxScale - config.minScale) * progress;
+            }
+
+            // 应用缩放效果
+            zoomImg.style.transform = `scale(${scale})`;
+        }
+
+        // 监听滚动事件（用节流优化性能）
+        about.addEventListener('scroll', throttle(handleScroll));
+        // 初始触发一次，设置初始状态
+        handleScroll();
+
+        const scrollContainer = document.querySelector('#scroll-container');
+
+        scrollContainer.addEventListener('wheel', function (e) {
+            // 容器当前滚动位置
+            const currentLeft = scrollContainer.scrollLeft;
+            // 容器可滚动的最大宽度（总宽度 - 可视宽度）
+            const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+            // 判断是否在最左侧（允许误差1px，避免精度问题）
+            const isAtStart = currentLeft <= 1;
+            // 判断是否在最右侧（允许误差1px）
+            const isAtEnd = currentLeft >= maxScrollLeft - 1;
+
+            // 滚轮方向：deltaY为正 → 向下滚动（想往右滚）；deltaY为负 → 向上滚动（想往左滚）
+            const isScrollingRight = e.deltaY > 0;
+            const isScrollingLeft = e.deltaY < 0;
+
+
+            if (
+                (isAtStart && isScrollingLeft) ||
+                (isAtEnd && isScrollingRight)
+            ) {
+                // 允许默认纵向滚动
+                return;
+            } else {
+                // 阻止默认行为，横向滚动
+                e.preventDefault();
+                scrollContainer.scrollLeft += e.deltaY;
+            }
+        });
+        let socialwechat = document.querySelectorAll('.social-wechat');
+        socialwechat.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                let qr = item.querySelector('.wechat-qr');
+                qr.style.display = 'block';
+            });
+            item.addEventListener('click', () => {
+                let qr = item.querySelector('.wechat-qr');
+                qr.style.display = 'block';
+            });
+            item.addEventListener('mouseleave', () => {
+                let qr = item.querySelector('.wechat-qr');
+                qr.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

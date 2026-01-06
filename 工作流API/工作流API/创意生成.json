@@ -1,0 +1,598 @@
+{
+  "10": {
+    "inputs": {
+      "ckpt_name": "ARC空间设计师XL _ 室内建筑景观Design大模型_ARC_0.4 .safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "12": {
+    "inputs": {
+      "text": [
+        "105",
+        0
+      ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "clip": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "13": {
+    "inputs": {
+      "value": 679820601481332
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "整数"
+    }
+  },
+  "14": {
+    "inputs": {
+      "CONDITIONING": [
+        "68",
+        1
+      ]
+    },
+    "class_type": "Prompts Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere Prompts"
+    }
+  },
+  "15": {
+    "inputs": {
+      "sharpen_radius": 1,
+      "sigma": 0.3,
+      "alpha": 1,
+      "image": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "ImageSharpen",
+    "_meta": {
+      "title": "锐化图像"
+    }
+  },
+  "16": {
+    "inputs": {
+      "black_level": 8,
+      "mid_level": 127.5,
+      "white_level": 255,
+      "image": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "Image Levels Adjustment",
+    "_meta": {
+      "title": "Image Levels Adjustment"
+    }
+  },
+  "17": {
+    "inputs": {
+      "image": "c59371af9175828fc92229dcd54d3f30.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "18": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "width": 1536,
+      "height": 0,
+      "crop": "disabled",
+      "image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "缩放图像"
+    }
+  },
+  "19": {
+    "inputs": {
+      "image": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "easy imageSize",
+    "_meta": {
+      "title": "图像尺寸"
+    }
+  },
+  "20": {
+    "inputs": {
+      "width": [
+        "19",
+        0
+      ],
+      "height": [
+        "19",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "21": {
+    "inputs": {
+      "VAE": [
+        "10",
+        2
+      ]
+    },
+    "class_type": "Anything Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere"
+    }
+  },
+  "22": {
+    "inputs": {
+      "MODEL": [
+        "103",
+        0
+      ]
+    },
+    "class_type": "Anything Everywhere",
+    "_meta": {
+      "title": "Anything Everywhere"
+    }
+  },
+  "24": {
+    "inputs": {
+      "samples": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "27": {
+    "inputs": {
+      "rgthree_comparer": {
+        "images": [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_omxgp_00001_.png&type=temp&subfolder=&rand=0.5350755302978879"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_omxgp_00002_.png&type=temp&subfolder=&rand=0.9607131477817108"
+          }
+        ]
+      },
+      "image_a": [
+        "17",
+        0
+      ],
+      "image_b": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "Image Comparer (rgthree)",
+    "_meta": {
+      "title": "Image Comparer (rgthree)"
+    }
+  },
+  "28": {
+    "inputs": {
+      "text": [
+        "31",
+        0
+      ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "clip": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "29": {
+    "inputs": {
+      "text_input": "",
+      "task": "more_detailed_caption",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 2048,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 8888,
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "image": [
+        "55",
+        0
+      ],
+      "florence2_model": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "30": {
+    "inputs": {
+      "model": "microsoft/Florence-2-large",
+      "precision": "fp32",
+      "attention": "sdpa"
+    },
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "_meta": {
+      "title": "DownloadAndLoadFlorence2Model"
+    }
+  },
+  "31": {
+    "inputs": {
+      "text": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "32": {
+    "inputs": {
+      "merge_with_lineart": "lineart_standard",
+      "resolution": 1280,
+      "lineart_lower_bound": 0,
+      "lineart_upper_bound": 1,
+      "object_min_size": 36,
+      "object_connectivity": 1,
+      "image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "AnyLineArtPreprocessor_aux",
+    "_meta": {
+      "title": "AnyLine Lineart"
+    }
+  },
+  "34": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "35",
+        0
+      ],
+      "text_c": [
+        "29",
+        2
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "35": {
+    "inputs": {
+      "string": [
+        "106",
+        0
+      ],
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
+    },
+    "class_type": "String Literal",
+    "_meta": {
+      "title": "输入文字"
+    }
+  },
+  "38": {
+    "inputs": {
+      "output_path": "",
+      "filename_prefix": "",
+      "filename_delimiter": "",
+      "filename_number_padding": 4,
+      "filename_number_start": "true",
+      "extension": "png",
+      "dpi": 300,
+      "quality": 100,
+      "optimize_image": "true",
+      "lossless_webp": "false",
+      "overwrite_mode": "false",
+      "show_history": "false",
+      "show_history_by_prefix": "false",
+      "embed_workflow": "false",
+      "show_previews": "false",
+      "images": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "Image Save",
+    "_meta": {
+      "title": "Image Save"
+    }
+  },
+  "50": {
+    "inputs": {
+      "image": "3 (1).jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "55": {
+    "inputs": {
+      "any_01": [
+        "50",
+        0
+      ],
+      "any_02": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "Any Switch (rgthree)",
+    "_meta": {
+      "title": "Any Switch (rgthree)"
+    }
+  },
+  "67": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 250082928186987,
+      "steps": 20,
+      "cfg": 3,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "sgm_uniform",
+      "start_at_step": 0,
+      "end_at_step": 20,
+      "return_with_leftover_noise": "disable",
+      "positive": [
+        "68",
+        0
+      ],
+      "negative": [
+        "68",
+        1
+      ],
+      "latent_image": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "68": {
+    "inputs": {
+      "switch": "On",
+      "base_positive": [
+        "28",
+        0
+      ],
+      "base_negative": [
+        "12",
+        0
+      ],
+      "controlnet_stack": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "CR Apply Multi-ControlNet",
+    "_meta": {
+      "title": "🕹️ CR Apply Multi-ControlNet"
+    }
+  },
+  "69": {
+    "inputs": {
+      "switch_1": "On",
+      "controlnet_1": "通用diffusion_pytorch_model_promax.safetensors",
+      "controlnet_strength_1": 0.6000000000000001,
+      "start_percent_1": 0,
+      "end_percent_1": 1,
+      "switch_2": "Off",
+      "controlnet_2": "None",
+      "controlnet_strength_2": 1,
+      "start_percent_2": 0,
+      "end_percent_2": 1,
+      "switch_3": "Off",
+      "controlnet_3": "None",
+      "controlnet_strength_3": 1,
+      "start_percent_3": 0,
+      "end_percent_3": 1,
+      "image_1": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "CR Multi-ControlNet Stack",
+    "_meta": {
+      "title": "🕹️ CR Multi-ControlNet Stack"
+    }
+  },
+  "83": {
+    "inputs": {
+      "type": "shuffle",
+      "strength": 0.33,
+      "blur": 1,
+      "image_optional": [
+        "88",
+        0
+      ]
+    },
+    "class_type": "IPAdapterNoise",
+    "_meta": {
+      "title": "IPAdapter Noise"
+    }
+  },
+  "88": {
+    "inputs": {
+      "interpolation": "BICUBIC",
+      "crop_position": "pad",
+      "sharpening": 0,
+      "image": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "PrepImageForClipVision",
+    "_meta": {
+      "title": "Prep Image For ClipVision"
+    }
+  },
+  "90": {
+    "inputs": {
+      "b1": 1.1,
+      "b2": 1.2,
+      "s1": 0.8,
+      "s2": 0.65,
+      "model": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "FreeU_V2",
+    "_meta": {
+      "title": "FreeU_V2"
+    }
+  },
+  "94": {
+    "inputs": {
+      "text": [
+        "106",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "100": {
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "103": {
+    "inputs": {
+      "preset": "PLUS (high strength)",
+      "lora_strength": 0.6,
+      "provider": "CUDA",
+      "weight": 0.8000000000000002,
+      "weight_faceidv2": 1,
+      "weight_type": "style and composition",
+      "combine_embeds": "concat",
+      "start_at": 0,
+      "end_at": 1,
+      "embeds_scaling": "V only",
+      "cache_mode": "all",
+      "use_tiled": false,
+      "use_batch": false,
+      "sharpening": 0,
+      "layer_weights": "",
+      "model": [
+        "90",
+        0
+      ],
+      "image": [
+        "88",
+        0
+      ],
+      "image_negative": [
+        "83",
+        0
+      ]
+    },
+    "class_type": "easy ipadapterApplyADV",
+    "_meta": {
+      "title": "应用IPAdapter(高级)"
+    }
+  },
+  "105": {
+    "inputs": {
+      "text": "",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
+    },
+    "class_type": "CR Text",
+    "_meta": {
+      "title": "🔤 CR Text"
+    }
+  },
+  "106": {
+    "inputs": {
+      "text": "",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      }
+    },
+    "class_type": "CR Text",
+    "_meta": {
+      "title": "🔤 CR Text"
+    }
+  }
+}
